@@ -229,6 +229,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/hexo-next博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/11/hexo-next博客/" itemprop="url">hexo+next博客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T13:50:49+08:00">
+                2018-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>安装node.js (npm或淘宝镜像cnpm)</li>
+<li>安装git 配饰ssh等</li>
+<li>下载安装hexo  (cnpm install -g hexo)</li>
+</ul>
+<h2 id="本地搭建hexo静态博客"><a href="#本地搭建hexo静态博客" class="headerlink" title="本地搭建hexo静态博客"></a>本地搭建hexo静态博客</h2><ul>
+<li>新建文件夹，如Blog</li>
+<li>进入文件夹右键运行git,输入hexo init(生成hexo模板，翻墙？)</li>
+<li>运行cnpm install</li>
+<li>运行hexo server(运行程序，访问本地localhost:4000可看到博客已搭建成功)</li>
+</ul>
+<h2 id="将博客与Github关联"><a href="#将博客与Github关联" class="headerlink" title="将博客与Github关联"></a>将博客与Github关联</h2><ul>
+<li>在Github上创建名字为XXX.github.io的项目，XXX为github的用户名</li>
+<li>打开本地的MyBlog文件夹项目内的_config.yml配置文件，将其中的type设置为git<blockquote>
+</blockquote>
+<pre><code>deploy:
+  type: git
+  repository: https://github.com/BingYuQHS/BingYuQHS.github.io.git
+  branch: master
+</code></pre></li>
+<li>运行：cnpm install –save hexo-deployer-git</li>
+<li>运行：hexo clean(删除本地Public目录)</li>
+<li>运行：hexo g(本地生成静态文件)</li>
+<li>运行：hexo d(将本地静态文件推送至Github)</li>
+<li>浏览器访问：<a href="https://bingyuqhs.github.io/" target="_blank" rel="noopener">https://bingyuqhs.github.io/</a></li>
+</ul>
+<h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><ul>
+<li>博客已经搭建好，能通过github的域名访问，也可以绑定自己的域名。（ps:具体的方法后面补充）</li>
+</ul>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ul>
+<li>Next主题为例</li>
+<li><p>下载主题,下载到Blog目录的themes主题下的next文件夹中</p>
+<blockquote>
+</blockquote>
+<pre><code>git clone https://github.com/iissnan/hexo-theme-next themes/next
+</code></pre></li>
+<li><p>打开站点的_config.yml配置文件，修改主题为next(主题项目的文件夹名称)</p>
+<blockquote>
+</blockquote>
+<pre><code>theme: next
+</code></pre></li>
+<li><p>打开主题(不是站点下的)的_config.yml配置文件，选着next主题的样式</p>
+<blockquote>
+</blockquote>
+<pre><code># Scheme Settings
+# Schemes
+#scheme: Muse
+scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+</code></pre></li>
+<li>选择好后，再次部署网站，hexo g、hexo d，查看效果,可在本地hexo server查看后再hexo d</li>
+</ul>
+<h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><h2 id="寻找图床"><a href="#寻找图床" class="headerlink" title="寻找图床"></a>寻找图床</h2><h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
