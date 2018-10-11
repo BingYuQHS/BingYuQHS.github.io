@@ -535,7 +535,7 @@
 </blockquote>
 <pre><code>theme: next
 </code></pre></li>
-<li><p>打开主题(不是站点下的)的_config.yml配置文件，选着next主题的样式</p>
+<li><p>打开主题(不是站点下的)的_config.yml配置文件，选择next主题的样式</p>
 <blockquote>
 </blockquote>
 <pre><code># Scheme Settings
@@ -545,7 +545,7 @@ scheme: Mist
 #scheme: Pisces
 #scheme: Gemini
 </code></pre></li>
-<li>选择好后，再次部署网站，hexo g、hexo d，查看效果,可在本地hexo server查看后再hexo d</li>
+<li>选择好后，再次部署网站，hexo g、hexo d，查看效果，可在本地hexo server查看后再执行hexo d命令。</li>
 </ul>
 <h2 id="发布文章"><a href="#发布文章" class="headerlink" title="发布文章"></a>发布文章</h2><ul>
 <li>创建博文<blockquote>
@@ -554,7 +554,7 @@ scheme: Mist
 hexo s --debug   (= hexo server --debug，在本地调样式时使用)
 </code></pre></li>
 <li>执行命令后，会发现在Blog根目录下的source文件夹中的_post文件夹中多了一个 博客名字.md 文件，使用Markdown编辑器打开可进行博文编写。</li>
-<li>写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。</li>
+<li>写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。(ps:可以hexo server –debug命令进行本地调试修改)</li>
 </ul>
 <h2 id="寻找图床"><a href="#寻找图床" class="headerlink" title="寻找图床"></a>寻找图床</h2><ul>
 <li>图床，当博文中有图片时，若是少量图片，可以直接把图片存放在source文件夹中，但这显然不合理的，因为图片会占据大量的存储的空间，加载的时候相对缓慢 ，这时考虑把博文里的图片上传到某一网站，然后获得外部链接，使用Markdown语法<code>![图片信息](外部链接)</code>，完成图片的插入，这种网站就被成为图床。</li>
