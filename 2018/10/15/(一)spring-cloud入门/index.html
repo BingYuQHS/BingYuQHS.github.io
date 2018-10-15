@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  spring cloud介绍 Spring提供了一系列工具，可以帮助开发人员迅速搭建分布式系统中的公共组件（比如：配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，主节点选举，分布式session，集群状态）。协助分布式环境中各个系统，为各类服务提供模板性配置。使用spring cloud,开发人员可以搭建实现了这些样板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(一)spring cloud入门">
+<meta property="og:url" content="http://yoursite.com/2018/10/15/(一)spring-cloud入门/index.html">
+<meta property="og:site_name" content="Flamingo&#39;s Blog">
+<meta property="og:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  spring cloud介绍 Spring提供了一系列工具，可以帮助开发人员迅速搭建分布式系统中的公共组件（比如：配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，主节点选举，分布式session，集群状态）。协助分布式环境中各个系统，为各类服务提供模板性配置。使用spring cloud,开发人员可以搭建实现了这些样板">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/19dmDbt.png">
+<meta property="og:image" content="https://i.imgur.com/FE7SQ5P.png">
+<meta property="og:image" content="https://i.imgur.com/cp4g9Tt.png">
+<meta property="og:image" content="https://i.imgur.com/fAd5OWZ.png">
+<meta property="og:image" content="https://i.imgur.com/YqllfbF.png">
+<meta property="og:image" content="https://i.imgur.com/ze1ttoj.png">
+<meta property="og:image" content="https://i.imgur.com/7fRyhIf.png">
+<meta property="og:image" content="https://i.imgur.com/Tb8BY9O.png">
+<meta property="og:image" content="https://i.imgur.com/6Rr2aSz.png">
+<meta property="og:image" content="https://i.imgur.com/ludOPNn.png">
+<meta property="og:image" content="https://i.imgur.com/CgGqkxs.png">
+<meta property="og:image" content="https://i.imgur.com/t7UIfPh.png">
+<meta property="og:image" content="https://i.imgur.com/iVfuY3f.png">
+<meta property="og:image" content="https://i.imgur.com/wcQEopY.png">
+<meta property="og:image" content="https://i.imgur.com/ohiYQUR.png">
+<meta property="og:image" content="https://i.imgur.com/DHZHgAU.png">
+<meta property="og:image" content="https://i.imgur.com/6uXm9qd.png">
+<meta property="og:image" content="https://i.imgur.com/CHYbFR7.png">
+<meta property="og:image" content="https://i.imgur.com/TdgjX2p.png">
+<meta property="og:image" content="https://i.imgur.com/7dYWz7h.png">
+<meta property="og:image" content="https://i.imgur.com/j38QtPC.png">
+<meta property="og:image" content="https://i.imgur.com/2mORUzM.png">
+<meta property="og:image" content="https://i.imgur.com/gamdgHg.png">
+<meta property="og:image" content="https://i.imgur.com/CvxV4zv.png">
+<meta property="og:image" content="https://i.imgur.com/lfmT8ut.png">
+<meta property="og:image" content="https://i.imgur.com/0haqJao.png">
+<meta property="og:image" content="https://i.imgur.com/vp1NCUo.png">
+<meta property="og:image" content="https://i.imgur.com/fbzslmz.png">
+<meta property="og:image" content="https://i.imgur.com/hwMcmf6.png">
+<meta property="og:updated_time" content="2018-10-15T09:00:31.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(一)spring cloud入门">
+<meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你  spring cloud介绍 Spring提供了一系列工具，可以帮助开发人员迅速搭建分布式系统中的公共组件（比如：配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，主节点选举，分布式session，集群状态）。协助分布式环境中各个系统，为各类服务提供模板性配置。使用spring cloud,开发人员可以搭建实现了这些样板">
+<meta name="twitter:image" content="https://i.imgur.com/19dmDbt.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/15/(一)spring-cloud入门/"/>
+
+
+
+
+
+  <title>(一)spring cloud入门 | Flamingo's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Flamingo's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hs</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/(一)spring-cloud入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsQin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flamingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">(一)spring cloud入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T15:41:26+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+
+<h1 id="spring-cloud介绍"><a href="#spring-cloud介绍" class="headerlink" title="spring cloud介绍"></a>spring cloud介绍</h1><ul>
+<li>Spring提供了一系列工具，可以帮助开发人员迅速搭建分布式系统中的公共组件（比如：配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，主节点选举，分布式session，集群状态）。协助分布式环境中各个系统，为各类服务提供模板性配置。使用spring cloud,开发人员可以搭建实现了这些样板的应用，并且在任何分布式环境下都能工作得很好，小到笔记本电脑，大到数据中心和云平台。</li>
+<li>spring cloud官网定义比较抽象，我们可以从简单的东西开始。Spring Cloud是基于spring Boot的，最适合用于管理Spring Boot创建的各个微服务应用。要管理分布式环境下的各个Spring Boot微服务，必然存在服务注册问题。所以我们先从服务的注册谈起。既然是注册，必然有个管理注册中心的服务，各个在Spring Cloud管理下的Spring Boot应用就是需要注册的client。</li>
+<li>Spring Cloud使用eureka server,然后所以需要访问配置文件的应用都作为一个eureka client注册上去。eureka是一个高可用的组件，它没有后端缓存，每一个实例注册后需要向注册中心发送心跳，在默认情况下eureka server也是一个eureka client,必须要指定一个server。<h1 id="spring-boot与spring-cloud的区别"><a href="#spring-boot与spring-cloud的区别" class="headerlink" title="spring boot与spring cloud的区别"></a>spring boot与spring cloud的区别</h1></li>
+<li>springboot是spring的一套快速配置的脚手架，可以基于springboot快速开发单个微服务，springcloud是一个基于springboot实现的云应用开发工具。</li>
+<li>spring boot专注于快速，方便集成单个个体，spring cloud是关注全局的服务治理框架</li>
+<li>spring boot使用了默认大于配置的理念，很多集成方案已经帮你选着好了，能不配置就不配置，spring cloud很大一部分是基于springboot来实现的。</li>
+<li>spring boot可以离开spring cloud独立使用开发项目，但spring cloud离不开spring boot,属于依赖关系。<h1 id="spring-boot与spring-cloud的版本匹配"><a href="#spring-boot与spring-cloud的版本匹配" class="headerlink" title="spring boot与spring cloud的版本匹配"></a>spring boot与spring cloud的版本匹配</h1></li>
+<li>参考：<a href="https://blog.csdn.net/zxl646801924/article/details/80742719," title="标题" target="_blank" rel="noopener">spring boot与spring cloud的版本匹配</a></li>
+<li><img src="https://i.imgur.com/19dmDbt.png" alt="版本匹配"><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1>参考：<a href="https://blog.csdn.net/forezp/article/details/81040925," title="标题" target="_blank" rel="noopener">spring cloud入门</a><h2 id="创建springboot项目"><a href="#创建springboot项目" class="headerlink" title="创建springboot项目"></a>创建springboot项目</h2></li>
+<li><img src="https://i.imgur.com/FE7SQ5P.png" alt=""></li>
+<li><img src="https://i.imgur.com/cp4g9Tt.png" alt=""></li>
+<li><img src="https://i.imgur.com/fAd5OWZ.png" alt=""></li>
+<li><img src="https://i.imgur.com/YqllfbF.png" alt=""></li>
+<li><img src="https://i.imgur.com/ze1ttoj.png" alt=""><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2></li>
+<li><img src="https://i.imgur.com/7fRyhIf.png" alt=""></li>
+<li><img src="https://i.imgur.com/Tb8BY9O.png" alt=""></li>
+<li><img src="https://i.imgur.com/6Rr2aSz.png" alt=""><h2 id="创建服务注册中心"><a href="#创建服务注册中心" class="headerlink" title="创建服务注册中心"></a>创建服务注册中心</h2></li>
+<li>创建一个model工程作为服务注册中心，即eureka server,另一个作为eureka client</li>
+<li>右键工程–&gt;创建model–&gt;选择spring initialir</li>
+<li><img src="https://i.imgur.com/ludOPNn.png" alt=""></li>
+<li><img src="https://i.imgur.com/CgGqkxs.png" alt=""></li>
+<li><img src="https://i.imgur.com/t7UIfPh.png" alt=""></li>
+<li><img src="https://i.imgur.com/iVfuY3f.png" alt=""></li>
+<li><img src="https://i.imgur.com/wcQEopY.png" alt=""></li>
+<li>创建完后的工程，其pom.xml继承了父pom文件，并引入spring-cloud-starter-netflix-eureka-server的依赖</li>
+<li><img src="https://i.imgur.com/ohiYQUR.png" alt=""><h2 id="启动注册服务中心"><a href="#启动注册服务中心" class="headerlink" title="启动注册服务中心"></a>启动注册服务中心</h2></li>
+<li>启动一个服务注册中心，只需要一个注解@EnableEurekaServer，这个注解需要在springboot工程的启动application类上加</li>
+<li><img src="https://i.imgur.com/DHZHgAU.png" alt=""><h2 id="eureka-server的配置文件"><a href="#eureka-server的配置文件" class="headerlink" title="eureka server的配置文件"></a>eureka server的配置文件</h2></li>
+<li>eureka是一个高可用的组件，它没有后端缓存，每一个实例注册之后需要向注册中心发送心跳（因此可以在内存中完成），在默认情况下erureka server也是一个eureka client ,必须要指定一个 server。eureka server的配置文件appication.yml</li>
+<li><img src="https://i.imgur.com/6uXm9qd.png" alt=""></li>
+<li>运行项目后：</li>
+<li><img src="https://i.imgur.com/CHYbFR7.png" alt=""><h2 id="创建一个服务提供者"><a href="#创建一个服务提供者" class="headerlink" title="创建一个服务提供者"></a>创建一个服务提供者</h2></li>
+<li>eureka client,当client向server注册时，它会提供一些元数据，例如主机和端口，URL,主页等。eureka server从每个client实例接收心跳消息。如果心跳超时，则通常将该实例从注册server中删除。</li>
+<li>创建过程同server类似，创建完pom.xml如下：</li>
+<li><img src="https://i.imgur.com/TdgjX2p.png" alt=""></li>
+<li><img src="https://i.imgur.com/7dYWz7h.png" alt=""></li>
+<li><img src="https://i.imgur.com/j38QtPC.png" alt=""></li>
+<li><img src="https://i.imgur.com/2mORUzM.png" alt=""></li>
+<li>注解@EnableEurekaClient，表明自己是一个eurekaclient，加在项目启动类：</li>
+<li><img src="https://i.imgur.com/gamdgHg.png" alt=""><h2 id="eureka-client的配置文件"><a href="#eureka-client的配置文件" class="headerlink" title="eureka client的配置文件"></a>eureka client的配置文件</h2></li>
+<li><img src="https://i.imgur.com/CvxV4zv.png" alt=""></li>
+<li>启动工程(server和client)，打开<a href="http://localhost:9876" target="_blank" rel="noopener">http://localhost:9876</a> ，即eureka server 的网址</li>
+<li><img src="https://i.imgur.com/lfmT8ut.png" alt=""><h2 id="添加一个简单的业务"><a href="#添加一个简单的业务" class="headerlink" title="添加一个简单的业务"></a>添加一个简单的业务</h2></li>
+<li><img src="https://i.imgur.com/0haqJao.png" alt=""></li>
+<li><img src="https://i.imgur.com/vp1NCUo.png" alt=""><h2 id="Eureka的自我保护模式"><a href="#Eureka的自我保护模式" class="headerlink" title="Eureka的自我保护模式"></a>Eureka的自我保护模式</h2></li>
+<li><img src="https://i.imgur.com/fbzslmz.png" alt=""></li>
+<li><img src="https://i.imgur.com/hwMcmf6.png" alt=""></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="hsQin 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="hsQin 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="hsQin 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/11/markdown常用语法/" rel="next" title="markdown常用语法">
+                <i class="fa fa-chevron-left"></i> markdown常用语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg"
+                alt="hsQin" />
+            
+              <p class="site-author-name" itemprop="name">hsQin</p>
+              <p class="site-description motion-element" itemprop="description">RunDouble</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bingyuqhs" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud介绍"><span class="nav-number">1.</span> <span class="nav-text">spring cloud介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-boot与spring-cloud的区别"><span class="nav-number">2.</span> <span class="nav-text">spring boot与spring cloud的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-boot与spring-cloud的版本匹配"><span class="nav-number">3.</span> <span class="nav-text">spring boot与spring cloud的版本匹配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实践"><span class="nav-number">4.</span> <span class="nav-text">实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建springboot项目"><span class="nav-number">4.1.</span> <span class="nav-text">创建springboot项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加依赖"><span class="nav-number">4.2.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建服务注册中心"><span class="nav-number">4.3.</span> <span class="nav-text">创建服务注册中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动注册服务中心"><span class="nav-number">4.4.</span> <span class="nav-text">启动注册服务中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eureka-server的配置文件"><span class="nav-number">4.5.</span> <span class="nav-text">eureka server的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建一个服务提供者"><span class="nav-number">4.6.</span> <span class="nav-text">创建一个服务提供者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eureka-client的配置文件"><span class="nav-number">4.7.</span> <span class="nav-text">eureka client的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加一个简单的业务"><span class="nav-number">4.8.</span> <span class="nav-text">添加一个简单的业务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eureka的自我保护模式"><span class="nav-number">4.9.</span> <span class="nav-text">Eureka的自我保护模式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hsQin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

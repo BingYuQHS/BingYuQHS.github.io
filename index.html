@@ -232,6 +232,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/(一)spring-cloud入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsQin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flamingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/15/(一)spring-cloud入门/" itemprop="url">(一)spring cloud入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T15:41:26+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+
+<h1 id="spring-cloud介绍"><a href="#spring-cloud介绍" class="headerlink" title="spring cloud介绍"></a>spring cloud介绍</h1><ul>
+<li>Spring提供了一系列工具，可以帮助开发人员迅速搭建分布式系统中的公共组件（比如：配置管理，服务发现，断路器，智能路由，微代理，控制总线，一次性令牌，全局锁，主节点选举，分布式session，集群状态）。协助分布式环境中各个系统，为各类服务提供模板性配置。使用spring cloud,开发人员可以搭建实现了这些样板的应用，并且在任何分布式环境下都能工作得很好，小到笔记本电脑，大到数据中心和云平台。</li>
+<li>spring cloud官网定义比较抽象，我们可以从简单的东西开始。Spring Cloud是基于spring Boot的，最适合用于管理Spring Boot创建的各个微服务应用。要管理分布式环境下的各个Spring Boot微服务，必然存在服务注册问题。所以我们先从服务的注册谈起。既然是注册，必然有个管理注册中心的服务，各个在Spring Cloud管理下的Spring Boot应用就是需要注册的client。</li>
+<li>Spring Cloud使用eureka server,然后所以需要访问配置文件的应用都作为一个eureka client注册上去。eureka是一个高可用的组件，它没有后端缓存，每一个实例注册后需要向注册中心发送心跳，在默认情况下eureka server也是一个eureka client,必须要指定一个server。<h1 id="spring-boot与spring-cloud的区别"><a href="#spring-boot与spring-cloud的区别" class="headerlink" title="spring boot与spring cloud的区别"></a>spring boot与spring cloud的区别</h1></li>
+<li>springboot是spring的一套快速配置的脚手架，可以基于springboot快速开发单个微服务，springcloud是一个基于springboot实现的云应用开发工具。</li>
+<li>spring boot专注于快速，方便集成单个个体，spring cloud是关注全局的服务治理框架</li>
+<li>spring boot使用了默认大于配置的理念，很多集成方案已经帮你选着好了，能不配置就不配置，spring cloud很大一部分是基于springboot来实现的。</li>
+<li>spring boot可以离开spring cloud独立使用开发项目，但spring cloud离不开spring boot,属于依赖关系。<h1 id="spring-boot与spring-cloud的版本匹配"><a href="#spring-boot与spring-cloud的版本匹配" class="headerlink" title="spring boot与spring cloud的版本匹配"></a>spring boot与spring cloud的版本匹配</h1></li>
+<li>参考：<a href="https://blog.csdn.net/zxl646801924/article/details/80742719," title="标题" target="_blank" rel="noopener">spring boot与spring cloud的版本匹配</a></li>
+<li><img src="https://i.imgur.com/19dmDbt.png" alt="版本匹配"><h1 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h1>参考：<a href="https://blog.csdn.net/forezp/article/details/81040925," title="标题" target="_blank" rel="noopener">spring cloud入门</a><h2 id="创建springboot项目"><a href="#创建springboot项目" class="headerlink" title="创建springboot项目"></a>创建springboot项目</h2></li>
+<li><img src="https://i.imgur.com/FE7SQ5P.png" alt=""></li>
+<li><img src="https://i.imgur.com/cp4g9Tt.png" alt=""></li>
+<li><img src="https://i.imgur.com/fAd5OWZ.png" alt=""></li>
+<li><img src="https://i.imgur.com/YqllfbF.png" alt=""></li>
+<li><img src="https://i.imgur.com/ze1ttoj.png" alt=""><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2></li>
+<li><img src="https://i.imgur.com/7fRyhIf.png" alt=""></li>
+<li><img src="https://i.imgur.com/Tb8BY9O.png" alt=""></li>
+<li><img src="https://i.imgur.com/6Rr2aSz.png" alt=""><h2 id="创建服务注册中心"><a href="#创建服务注册中心" class="headerlink" title="创建服务注册中心"></a>创建服务注册中心</h2></li>
+<li>创建一个model工程作为服务注册中心，即eureka server,另一个作为eureka client</li>
+<li>右键工程–&gt;创建model–&gt;选择spring initialir</li>
+<li><img src="https://i.imgur.com/ludOPNn.png" alt=""></li>
+<li><img src="https://i.imgur.com/CgGqkxs.png" alt=""></li>
+<li><img src="https://i.imgur.com/t7UIfPh.png" alt=""></li>
+<li><img src="https://i.imgur.com/iVfuY3f.png" alt=""></li>
+<li><img src="https://i.imgur.com/wcQEopY.png" alt=""></li>
+<li>创建完后的工程，其pom.xml继承了父pom文件，并引入spring-cloud-starter-netflix-eureka-server的依赖</li>
+<li><img src="https://i.imgur.com/ohiYQUR.png" alt=""><h2 id="启动注册服务中心"><a href="#启动注册服务中心" class="headerlink" title="启动注册服务中心"></a>启动注册服务中心</h2></li>
+<li>启动一个服务注册中心，只需要一个注解@EnableEurekaServer，这个注解需要在springboot工程的启动application类上加</li>
+<li><img src="https://i.imgur.com/DHZHgAU.png" alt=""><h2 id="eureka-server的配置文件"><a href="#eureka-server的配置文件" class="headerlink" title="eureka server的配置文件"></a>eureka server的配置文件</h2></li>
+<li>eureka是一个高可用的组件，它没有后端缓存，每一个实例注册之后需要向注册中心发送心跳（因此可以在内存中完成），在默认情况下erureka server也是一个eureka client ,必须要指定一个 server。eureka server的配置文件appication.yml</li>
+<li><img src="https://i.imgur.com/6uXm9qd.png" alt=""></li>
+<li>运行项目后：</li>
+<li><img src="https://i.imgur.com/CHYbFR7.png" alt=""><h2 id="创建一个服务提供者"><a href="#创建一个服务提供者" class="headerlink" title="创建一个服务提供者"></a>创建一个服务提供者</h2></li>
+<li>eureka client,当client向server注册时，它会提供一些元数据，例如主机和端口，URL,主页等。eureka server从每个client实例接收心跳消息。如果心跳超时，则通常将该实例从注册server中删除。</li>
+<li>创建过程同server类似，创建完pom.xml如下：</li>
+<li><img src="https://i.imgur.com/TdgjX2p.png" alt=""></li>
+<li><img src="https://i.imgur.com/7dYWz7h.png" alt=""></li>
+<li><img src="https://i.imgur.com/j38QtPC.png" alt=""></li>
+<li><img src="https://i.imgur.com/2mORUzM.png" alt=""></li>
+<li>注解@EnableEurekaClient，表明自己是一个eurekaclient，加在项目启动类：</li>
+<li><img src="https://i.imgur.com/gamdgHg.png" alt=""><h2 id="eureka-client的配置文件"><a href="#eureka-client的配置文件" class="headerlink" title="eureka client的配置文件"></a>eureka client的配置文件</h2></li>
+<li><img src="https://i.imgur.com/CvxV4zv.png" alt=""></li>
+<li>启动工程(server和client)，打开<a href="http://localhost:9876" target="_blank" rel="noopener">http://localhost:9876</a> ，即eureka server 的网址</li>
+<li><img src="https://i.imgur.com/lfmT8ut.png" alt=""><h2 id="添加一个简单的业务"><a href="#添加一个简单的业务" class="headerlink" title="添加一个简单的业务"></a>添加一个简单的业务</h2></li>
+<li><img src="https://i.imgur.com/0haqJao.png" alt=""></li>
+<li><img src="https://i.imgur.com/vp1NCUo.png" alt=""><h2 id="Eureka的自我保护模式"><a href="#Eureka的自我保护模式" class="headerlink" title="Eureka的自我保护模式"></a>Eureka的自我保护模式</h2></li>
+<li><img src="https://i.imgur.com/fbzslmz.png" alt=""></li>
+<li><img src="https://i.imgur.com/hwMcmf6.png" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/markdown常用语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -831,7 +1001,7 @@ social_icons:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
