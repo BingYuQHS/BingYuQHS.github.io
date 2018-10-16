@@ -319,8 +319,8 @@
 <li><img src="https://i.imgur.com/TEPnDff.png" alt=""><h3 id="在启动类向服务中心注册"><a href="#在启动类向服务中心注册" class="headerlink" title="在启动类向服务中心注册"></a>在启动类向服务中心注册</h3></li>
 <li>在工程的启动类中，通过@EnableDiscoveryClient向服务注册中心注册，并且向程序的ioc注入一个bean:restTemplate;并且通过@LoadBalanced注解表明这个restTemplate开启负载均衡的功能。</li>
 <li>此处注意：spring boot注入restTemplate的方式。<ol>
-<li>直接在启动类用new RestTemplate()方式实例化restTemplate。</li>
-<li>spring boot自动注入了RestTemplateBuilder的实例，利用builder.buid()方法实例化一个RestTemplate对象。</li>
+<li>直接在启动类用new RestTemplate()方式实例化restTemplate(如下图一所示)。</li>
+<li>spring boot自动注入了RestTemplateBuilder的实例，利用builder.buid()方法实例化一个RestTemplate对象（如下图二和三所示）。</li>
 <li><img src="https://i.imgur.com/L8oV8Cg.png" alt=""><img src="https://i.imgur.com/E7XnZc9.png" alt=""><img src="https://i.imgur.com/getFM2R.png" alt=""><h3 id="通过restTemplate来消费其他服务的接口"><a href="#通过restTemplate来消费其他服务的接口" class="headerlink" title="通过restTemplate来消费其他服务的接口"></a>通过restTemplate来消费其他服务的接口</h3></li>
 </ol>
 </li>

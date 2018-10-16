@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://i.imgur.com/T5BLAq9.png">
 <meta property="og:image" content="https://i.imgur.com/MYrdJoP.png">
 <meta property="og:image" content="https://i.imgur.com/eIMdbMC.png">
-<meta property="og:updated_time" content="2018-10-16T06:32:28.813Z">
+<meta property="og:updated_time" content="2018-10-16T07:19:12.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(三)spring-cloud进阶二">
 <meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 服务消费者（rest+ribbon）(Finchley版本)参考：https://blog.csdn.net/forezp/article/details/81040946  在微服务架构中，业务都会被拆分成一个独立的服务，服务与服务的通讯是基于http restful的。spring cloud有两种服务调用方式，一种是ribbon+restTe">
@@ -338,8 +338,8 @@
 <li><img src="https://i.imgur.com/TEPnDff.png" alt=""><h3 id="在启动类向服务中心注册"><a href="#在启动类向服务中心注册" class="headerlink" title="在启动类向服务中心注册"></a>在启动类向服务中心注册</h3></li>
 <li>在工程的启动类中，通过@EnableDiscoveryClient向服务注册中心注册，并且向程序的ioc注入一个bean:restTemplate;并且通过@LoadBalanced注解表明这个restTemplate开启负载均衡的功能。</li>
 <li>此处注意：spring boot注入restTemplate的方式。<ol>
-<li>直接在启动类用new RestTemplate()方式实例化restTemplate。</li>
-<li>spring boot自动注入了RestTemplateBuilder的实例，利用builder.buid()方法实例化一个RestTemplate对象。</li>
+<li>直接在启动类用new RestTemplate()方式实例化restTemplate(如下图一所示)。</li>
+<li>spring boot自动注入了RestTemplateBuilder的实例，利用builder.buid()方法实例化一个RestTemplate对象（如下图二和三所示）。</li>
 <li><img src="https://i.imgur.com/L8oV8Cg.png" alt=""><img src="https://i.imgur.com/E7XnZc9.png" alt=""><img src="https://i.imgur.com/getFM2R.png" alt=""><h3 id="通过restTemplate来消费其他服务的接口"><a href="#通过restTemplate来消费其他服务的接口" class="headerlink" title="通过restTemplate来消费其他服务的接口"></a>通过restTemplate来消费其他服务的接口</h3></li>
 </ol>
 </li>
