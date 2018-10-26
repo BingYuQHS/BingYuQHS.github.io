@@ -232,6 +232,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/25/(五)spring-cloud进阶四/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsQin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flamingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/(五)spring-cloud进阶四/" itemprop="url">(五)spring cloud进阶四——断路器(Hystrix)(Finchley版本)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T14:44:28+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote></p>
+<h1 id="断路器-Hystrix-Finchley版本"><a href="#断路器-Hystrix-Finchley版本" class="headerlink" title="断路器(Hystrix)(Finchley版本)"></a>断路器(Hystrix)(Finchley版本)</h1><ul>
+<li>在微服务架构中，根据业务来拆分成一个个的服务，服务与服务间可以相互调用(RPC)，在spring cloud可以用RestTemplate+Ribbon和Feign来调用服务。为了保证其高可用，单个服务通常会集群部署。但由于网络或自身原因，服务并不能保证100%可用，如果单个服务出现了问题，调用服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet容器的线程资源就会被消耗完毕，导致服务瘫痪，因为服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的“雪崩”效应。</li>
+<li>为了解决这个问题，业界提出了断路器模型：<img src="https://i.imgur.com/Ij52NVO.png" alt=""><img src="https://i.imgur.com/QaS6wog.png" alt=""></li>
+<li>启动eureka-server工程；启动service-hi工程，它的端口为9873。<h1 id="在ribbon中使用断路器"><a href="#在ribbon中使用断路器" class="headerlink" title="在ribbon中使用断路器"></a>在ribbon中使用断路器</h1>改造service-ribbon工程的代码<h2 id="添加hystrix的依赖"><a href="#添加hystrix的依赖" class="headerlink" title="添加hystrix的依赖"></a>添加hystrix的依赖</h2></li>
+<li>添加依赖：spring-cloud-starter-netflix-hystrix<img src="https://i.imgur.com/jFUVvZj.png" alt=""><h2 id="在启动类开启断路器"><a href="#在启动类开启断路器" class="headerlink" title="在启动类开启断路器"></a>在启动类开启断路器</h2></li>
+<li>在启动类添加@EnableHystrix注解，开启断路器的功能，用于控制servlet容器的线程阻塞。<img src="https://i.imgur.com/9CE0Zr1.png" alt=""><h2 id="改造HelloService类"><a href="#改造HelloService类" class="headerlink" title="改造HelloService类"></a>改造HelloService类</h2></li>
+<li>改造HelloService类，在hiService方法上加上@HystrixCommand注解，该注解为该方法创建了熔断器功能，并指定了fallbackMethod熔断方法，此处的熔断方法直接返回一个字符串。<img src="https://i.imgur.com/uyeUM43.png" alt=""><h2 id="启动service-ribbon工程"><a href="#启动service-ribbon工程" class="headerlink" title="启动service-ribbon工程"></a>启动service-ribbon工程</h2></li>
+<li>访问：localhost:9871/hi?name=qinhs</li>
+<li>浏览器显示（注意，若service-hi服务正常启动，该服务的/hi接口能正常访问）：<img src="https://i.imgur.com/yPDUy1l.png" alt="">【ps:该图片是service-hi服务正常启动时】</li>
+<li>关闭service-hi：当service-hi服务不可用时（如未正常启动），service-ribbon调用service-hi的API接口时，会执行快速失败，直接调用熔断方法（返回字符串），而不是等待响应超时，这就很好地控制了容器地线程阻塞。<img src="https://i.imgur.com/jcMva5H.png" alt=""><h1 id="在feign使用断路器"><a href="#在feign使用断路器" class="headerlink" title="在feign使用断路器"></a>在feign使用断路器</h1><h2 id="改造service-feign工程"><a href="#改造service-feign工程" class="headerlink" title="改造service-feign工程"></a>改造service-feign工程</h2><h2 id="启动service-feign工程"><a href="#启动service-feign工程" class="headerlink" title="启动service-feign工程"></a>启动service-feign工程</h2></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/(四)spring-cloud进阶三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1148,6 +1279,9 @@ scheme: Mist
 </blockquote>
 <pre><code>hexo n &quot;博客名字&quot; (= hexo new &quot;博客名字&quot;)
 hexo s --debug   (= hexo server --debug，在本地调样式时使用)
+hexo clean         (删除本地地Public目录)
+hexo g            （本地生成静态文件）
+hexo d             (将本地静态文件推送至Github)
 </code></pre></li>
 <li>执行命令后，会发现在Blog根目录下的source文件夹中的_post文件夹中多了一个 博客名字.md 文件，使用Markdown编辑器打开可进行博文编写。</li>
 <li>写好博文并且样式无误后，通过hexo g、hexo d 生成、部署网页。随后可以在浏览器中输入域名浏览。(ps:可以hexo server –debug命令进行本地调试修改)</li>
@@ -1212,7 +1346,56 @@ social_icons:
   ##uid: Get this uid from http://www.jiathis.com/
 #add_this_id:
 </code></pre></li>
-<li>博文分享的插件jiathis,值设置为true。<h3 id="个性化进阶"><a href="#个性化进阶" class="headerlink" title="个性化进阶"></a>个性化进阶</h3><h4 id="添加网易云音乐"><a href="#添加网易云音乐" class="headerlink" title="添加网易云音乐"></a>添加网易云音乐</h4><h4 id="设置背景"><a href="#设置背景" class="headerlink" title="设置背景"></a>设置背景</h4><h4 id="增加菜单条目"><a href="#增加菜单条目" class="headerlink" title="增加菜单条目"></a>增加菜单条目</h4></li>
+<li>博文分享的插件jiathis,值设置为true。<h3 id="个性化进阶"><a href="#个性化进阶" class="headerlink" title="个性化进阶"></a>个性化进阶</h3><h4 id="添加网易云音乐"><a href="#添加网易云音乐" class="headerlink" title="添加网易云音乐"></a>添加网易云音乐</h4><h4 id="设置背景"><a href="#设置背景" class="headerlink" title="设置背景"></a>设置背景</h4><h4 id="增加菜单条目"><a href="#增加菜单条目" class="headerlink" title="增加菜单条目"></a>增加菜单条目</h4><h2 id="异地同步博客"><a href="#异地同步博客" class="headerlink" title="异地同步博客"></a>异地同步博客</h2></li>
+<li>如何将两台电脑上的博客内容同步，及两台电脑上都可以编辑更新博客？要解决这个问题，首先要清楚博客文件地组成：<blockquote>
+</blockquote>
+<pre><code>node_modules
+public
+scaffolds
+source
+themes
+_config_yml
+db.json
+package.json
+.deploy_git
+</code></pre></li>
+<li>以上是利用hexo生成的博客的全部内容，当我们执行hexo d时，真正被推送到github上的有哪些内容呢？</li>
+<li>看下guthub上的bingyuqhs.github.io项目，发现里面只有Public目录下的内容。也就是说，博客上呈现的内容其实就是public下的文件内容。那么这个public目录是怎么生成的呢？</li>
+<li>一开始hexo init的时候是没有public目录的，而运行hexo g命令时，public目录生成了，也就是说hexo g命令就是用来生成博客文件的（会根据_config.yml，source目录文件以及themes目录下文件生成）。运行hexo clean命令时，public目录被删除了。</li>
+<li>现在，我们知道决定博客显示内容的只有一个Public目录，而public目录又是可以动态生成的，那么其实我们只要在不同电脑上同步可以生成Public目录的文件即可。</li>
+<li><p>以下文件及目录是必须要同步的：</p>
+<blockquote>
+<pre><code>source
+themes
+_config.yml
+db.json
+package.json
+.deploy_git
+</code></pre></blockquote>
+</li>
+<li><p>同步的方式有很多种，可以每次更新后都备份到一个地址。可以采用github去备份，新建一个项目用来存放以上文件，每次更新后推送的gihub上，用作备份同步。</p>
+</li>
+<li><p>同步完必须的文件后，怎样在其他电脑上也可以更新博客呢？</p>
+<blockquote>
+</blockquote>
+<pre><code>1 下载node.js并安装（官网下载安装），默认会安装npm.
+2 下载安装git(官网下载安装)
+3 下载安装hexo(方法：npm install -g hexo)【要翻墙】
+4 新建一个文件夹，如Blog
+5 进入该文件夹内，右键运行git,输入命令：hexo init(生成hexo模板，可能要翻墙)
+</code></pre></li>
+<li><p>我们重复一开始搭建博客的步骤，重新生成了一个新的模板，这个模板中包含了hexo生成的一些文件。</p>
+<blockquote>
+</blockquote>
+<pre><code>1 git clone我们备份的项目，生成一个文件夹，如BlogData
+2 将Blog里面的node_moudules、scaffolds文件夹复制到BlogData里面。
+</code></pre></li>
+<li><p>做完这些，从表面上看，两台电脑上的BlogData目录下的文件应该都是一样的了，现在运行hexo g、hexo d试试，如果报错就往下看。</p>
+<blockquote>
+</blockquote>
+<pre><code>这是因为.deploy_git没同步，在BlogData目录内运行npm install hexo-deployer-git --save后再次推送即可    
+</code></pre></li>
+<li>总结流程：当我们每次更新Blog内容后，先利用hexo将public推送到github，然后再将其余必须同步的文件利用git推送到github上。</li>
 </ul>
 
           
@@ -1427,7 +1610,7 @@ social_icons:
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
