@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.imgur.com/1hKKnKm.jpg">
 <meta property="og:image" content="https://i.imgur.com/TvEsmb5.jpg">
 <meta property="og:image" content="https://i.imgur.com/efKphTZ.jpg">
-<meta property="og:updated_time" content="2018-11-05T05:55:22.929Z">
+<meta property="og:updated_time" content="2018-11-05T06:37:51.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7搭建EJBCA环境">
 <meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 一、介绍EJBCA说明EJBCA是一个全功能的CA系统软件，它基于J2EE技术，并提供了一个强大的、高性能并基于组件的CA。EJBCA兼具灵活性和平台独立性，能够独立使用，也能和任何J2EE应用程序集成。 EJBCA特性 LGPL开源许可 建立在J2EE 1.3(EJB2.0)规范上 灵活的、基于组件的体系结构 多久CA 多个CA和多级CA,在一个">
@@ -349,53 +349,68 @@
 <pre><code>rpm -qa|grep java
 rpm -e --nodeps filename
 </code></pre></li>
-<li>从<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html," title="jdk-8u191-linux-x64.rpm" target="_blank" rel="noopener">oracle官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>下载jdk安装包：<code>jdk-8u191-linux-x64.rpm</code>,放在/usr/file/目录下</li>
-<li>用下面的命令安装，默认安装在/usr/java目录<blockquote>
+<li><p>从<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html," title="jdk-8u191-linux-x64.rpm" target="_blank" rel="noopener">oracle官网](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>下载jdk安装包：<code>jdk-8u191-linux-x64.rpm</code>,放在/usr/file/目录下</p>
+</li>
+<li><p>用下面的命令安装，默认安装在/usr/java目录</p>
+<blockquote>
 </blockquote>
 <pre><code>rpm -ivh jdk-8u191-linux-x64.rpm
 </code></pre></li>
-<li>配置环境变量<blockquote>
+<li><p>配置环境变量</p>
+<blockquote>
 </blockquote>
 <pre><code>vi /etc/profile
 </code></pre></li>
-<li>追加如下内容：<blockquote>
+<li><p>追加如下内容：</p>
+<blockquote>
 </blockquote>
 <pre><code>#java conf
 export JAVA_HOME=/usr/java/jdk1.8.0_191
 export PATH=$PATH:$JAVA_HOME/bin
 export CLASSPATH=:$JAVA_HOME/lib
 </code></pre></li>
-<li>使配置立即生效，然后检查安装结果<blockquote>
+<li><p>使配置立即生效，然后检查安装结果</p>
+<blockquote>
 </blockquote>
 <pre><code>source /etc/profile
 java -version
-</code></pre><h3 id="安装ant"><a href="#安装ant" class="headerlink" title="安装ant"></a>安装ant</h3></li>
-<li>从<a href="https://archive.apache.org/dist/ant/binaries/," title="jdk-8u191-linux-x64.rpm" target="_blank" rel="noopener">ant官网</a>下载jdk安装包：<code>apache-ant-1.10.0-bin.tar.gz</code>,解压<blockquote>
+</code></pre></li>
+</ul>
+<h3 id="安装ant"><a href="#安装ant" class="headerlink" title="安装ant"></a>安装ant</h3><ul>
+<li><p>从<a href="https://archive.apache.org/dist/ant/binaries/," title="jdk-8u191-linux-x64.rpm" target="_blank" rel="noopener">ant官网</a>下载jdk安装包：<code>apache-ant-1.10.0-bin.tar.gz</code>,解压</p>
+<blockquote>
 </blockquote>
 <pre><code>tar xvf apache-ant-1.10.0-bin.tar.gz -C /usr/java/
 </code></pre></li>
-<li>配置环境变量<blockquote>
+<li><p>配置环境变量</p>
+<blockquote>
 </blockquote>
 <pre><code>vi /etc/profile
 </code></pre></li>
-<li>追加如下内容：<blockquote>
+<li><p>追加如下内容：</p>
+<blockquote>
 </blockquote>
 <pre><code>#ant conf
 export ANT_HOME=/usr/java/apache-ant-1.10.0
 export PATH=$PATH:$ANT_HOME/bin
 </code></pre></li>
-<li>使配置立即生效，然后检查安装结果<blockquote>
+<li><p>使配置立即生效，然后检查安装结果</p>
+<blockquote>
 </blockquote>
 <pre><code>source /etc/profile
 ant -version
-</code></pre><h3 id="修改centos主机名"><a href="#修改centos主机名" class="headerlink" title="修改centos主机名"></a>修改centos主机名</h3></li>
+</code></pre></li>
+</ul>
+<h3 id="修改centos主机名"><a href="#修改centos主机名" class="headerlink" title="修改centos主机名"></a>修改centos主机名</h3><ul>
 <li>参考:<code>https://www.jianshu.com/p/39d7000dfa47</code></li>
-<li>要查看主机名相关的设置：<blockquote>
+<li><p>要查看主机名相关的设置：</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@localhost ~]# hostnamectl
 [root@localhost ~]# hostnamectl status
 </code></pre></li>
-<li>只查看静态、瞬态或灵活主机名，分别使用–static，–transient或–pretty选项<blockquote>
+<li><p>只查看静态、瞬态或灵活主机名，分别使用–static，–transient或–pretty选项</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@localhost ~]# hostnamectl --static
 localhost.localdomain
@@ -403,7 +418,8 @@ localhost.localdomain
 localhost.localdomain
 [root@localhost ~]# hostnamectl --pretty
 </code></pre></li>
-<li>要同时修改所有三个主机名：静态、瞬态和灵活主机名：<blockquote>
+<li><p>要同时修改所有三个主机名：静态、瞬态和灵活主机名：</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@localhost ~]# hostnamectl set-hostname by.cos7
 [root@localhost ~]# hostnamectl --pretty
@@ -412,8 +428,10 @@ by.cos7
 [root@localhost ~]# hostnamectl --transient
 by.cos7
 </code></pre></li>
-<li>就像上面展示的那样，在修改静态/瞬态主机名时，任何特殊字符或空白字符会被移除，而提供的参数中的任何大写字母会自动转化为小写。<br>一旦修改了静态主机名，/etc/hostname 将被自动更新。然而，/etc/hosts 不会更新以保存所做的修改，所以你每次在修改主机名后一定要手动更新/etc/hosts，之后再重启CentOS 7。否则系统再启动时会很慢</li>
-<li>手动更新/etc/hosts<blockquote>
+<li><p>就像上面展示的那样，在修改静态/瞬态主机名时，任何特殊字符或空白字符会被移除，而提供的参数中的任何大写字母会自动转化为小写。<br>一旦修改了静态主机名，/etc/hostname 将被自动更新。然而，/etc/hosts 不会更新以保存所做的修改，所以你每次在修改主机名后一定要手动更新/etc/hosts，之后再重启CentOS 7。否则系统再启动时会很慢</p>
+</li>
+<li><p>手动更新/etc/hosts</p>
+<blockquote>
 </blockquote>
 <pre><code>vim /etc/hosts
 #127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
@@ -421,17 +439,20 @@ by.cos7
 #::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 ::1        by.cos7
 </code></pre></li>
-<li>重启CentOS 7 之后（reboot -f ）<blockquote>
+<li><p>重启CentOS 7 之后（reboot -f ）</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@by ~]# hostname
 by.cos7
 [root@by ~]# hostnamectl
 </code></pre></li>
-<li>如果你只想修改特定的主机名（静态，瞬态或灵活），你可以使用–static，–transient或–pretty选项。例如，要永久修改主机名，你可以修改静态主机名:<blockquote>
+<li><p>如果你只想修改特定的主机名（静态，瞬态或灵活），你可以使用–static，–transient或–pretty选项。例如，要永久修改主机名，你可以修改静态主机名:</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@localhost ~]# hostnamectl --static set-hostname by.cos7
 </code></pre></li>
-<li>重启CentOS 7 之后（reboot -f ）<blockquote>
+<li><p>重启CentOS 7 之后（reboot -f ）</p>
+<blockquote>
 </blockquote>
 <pre><code>[root@by ~]# hostnamectl --static
 by.cos7
@@ -442,51 +463,64 @@ by.cos7
 [root@by ~]# hostname
 by.cos7
 </code></pre></li>
-<li>其实，你不必重启机器以激活永久主机名修改。上面的命令会立即修改内核主机名。<br>注销并重新登入后在命令行提示来观察新的静态主机名<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3></li>
-<li>安装前查看已安装的mysql或mysql库，并删除它们<blockquote>
+<li><p>其实，你不必重启机器以激活永久主机名修改。上面的命令会立即修改内核主机名。<br>注销并重新登入后在命令行提示来观察新的静态主机名</p>
+<h3 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h3></li>
+<li><p>安装前查看已安装的mysql或mysql库，并删除它们</p>
+<blockquote>
 </blockquote>
 <pre><code>rpm -qa|grep -i mysql
 rpm -e --nodeps filename
 </code></pre></li>
-<li>如果重装mysql，查找安装mysql产生的文件，并删除它们<blockquote>
+<li><p>如果重装mysql，查找安装mysql产生的文件，并删除它们</p>
+<blockquote>
 </blockquote>
 <pre><code>find / -name mysql
 rm -fr filename
 </code></pre></li>
-<li>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源<blockquote>
+<li><p>CentOS7的yum源中默认好像是没有mysql的。为了解决这个问题，我们要先下载mysql的repo源</p>
+<blockquote>
 </blockquote>
 <pre><code>$ wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 </code></pre></li>
-<li>安装mysql-community-release-el7-5.noarch.rpm包<blockquote>
+<li><p>安装mysql-community-release-el7-5.noarch.rpm包</p>
+<blockquote>
 </blockquote>
 <pre><code>$ sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
 </code></pre></li>
-<li>安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo</li>
-<li>安装mysql<blockquote>
+<li><p>安装这个包后，会获得两个mysql的yum repo源：/etc/yum.repos.d/mysql-community.repo，/etc/yum.repos.d/mysql-community-source.repo</p>
+</li>
+<li><p>安装mysql</p>
+<blockquote>
 </blockquote>
 <pre><code>$ sudo yum install mysql-server
 </code></pre></li>
-<li>如果yum正在使用：强制关闭yum命令<code>rm -f /var/run/yum.pid</code></li>
-<li>重置密码,重置密码前，首先要登录<blockquote>
+<li><p>如果yum正在使用：强制关闭yum命令<code>rm -f /var/run/yum.pid</code></p>
+</li>
+<li><p>重置密码,重置密码前，首先要登录</p>
+<blockquote>
 </blockquote>
 <pre><code>$ mysql -u root
 </code></pre></li>
-<li>登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock‘ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：<blockquote>
+<li><p>登录时有可能报这样的错：ERROR 2002 (HY000): Can‘t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock‘ (2)，原因是/var/lib/mysql的访问权限问题。下面的命令把/var/lib/mysql的拥有者改为当前用户：</p>
+<blockquote>
 </blockquote>
 <pre><code>$ sudo chown -R mysql:mysql /var/lib/mysql
 </code></pre></li>
-<li>然后，重启服务：<blockquote>
+<li><p>然后，重启服务：</p>
+<blockquote>
 </blockquote>
 <pre><code>$ service mysqld restart
 </code></pre></li>
-<li>接下来登录重置密码：<blockquote>
+<li><p>接下来登录重置密码：</p>
+<blockquote>
 </blockquote>
 <pre><code>$ mysql -u root
 mysql &gt; use mysql;
 mysql &gt; update user set password=password(&apos;123456&apos;) where user=&apos;root&apos;;
 mysql &gt; exit;
 </code></pre></li>
-<li>需要更改权限才能实现远程连接MYSQL数据库<blockquote>
+<li><p>需要更改权限才能实现远程连接MYSQL数据库</p>
+<blockquote>
 </blockquote>
 <pre><code># mysql -uroot -p
 Enter password: ******
@@ -519,7 +553,9 @@ mysql&gt; select host, user, password from user;
 | %          | root | *4ACFE3202A5FF5CF467898FC58AAB1D615029441 |
 +-----------+------+-------------------------------------------+
 4 rows in set (0.01 sec)
-</code></pre><h3 id="创建ejbca数据库"><a href="#创建ejbca数据库" class="headerlink" title="创建ejbca数据库"></a>创建ejbca数据库</h3></li>
+</code></pre></li>
+</ul>
+<h3 id="创建ejbca数据库"><a href="#创建ejbca数据库" class="headerlink" title="创建ejbca数据库"></a>创建ejbca数据库</h3><ul>
 <li><p>建数据库：</p>
 <blockquote>
 </blockquote>
@@ -533,7 +569,9 @@ mysql&gt; select host, user, password from user;
 [root@by ~]# systemctl stop firewalld.service
 本机hosts文件（windows/system32/drivers/etc/hosts）配置：
 192.168.171.144  by.cos7
-</code></pre><h3 id="为EJBCA新建用户"><a href="#为EJBCA新建用户" class="headerlink" title="为EJBCA新建用户"></a>为EJBCA新建用户</h3></li>
+</code></pre></li>
+</ul>
+<h3 id="为EJBCA新建用户"><a href="#为EJBCA新建用户" class="headerlink" title="为EJBCA新建用户"></a>为EJBCA新建用户</h3><ul>
 <li><p>进入root用户(su命令)：(设置pwd:ejbca)</p>
 <blockquote>
 </blockquote>
@@ -548,7 +586,9 @@ chown ca:ca /opt/ca
 chown ca:ca /opt/ca/jboss-eap-6.4.0-installer.jar
 chown ca:ca /opt/ca/ejbca_ce_6_3_1_1.zip
 chown ca:ca /opt/ca/mysql-connector-java-5.1.27.jar
-</code></pre><h2 id="安装JBoss-EAP"><a href="#安装JBoss-EAP" class="headerlink" title="安装JBoss EAP"></a>安装JBoss EAP</h2></li>
+</code></pre></li>
+</ul>
+<h2 id="安装JBoss-EAP"><a href="#安装JBoss-EAP" class="headerlink" title="安装JBoss EAP"></a>安装JBoss EAP</h2><ul>
 <li>切换用户: <code>su ca</code></li>
 <li><p>用java命令安装JBoss EAP：</p>
 <blockquote>
@@ -720,7 +760,8 @@ You are disconnected at  the moment.  Type  &apos;connect&apos;  to  connect to 
 #重新加载
 :reload
 </code></pre></li>
-<li>完成后输入exit回车即可退出。<h2 id="安装ejbca"><a href="#安装ejbca" class="headerlink" title="安装ejbca"></a>安装ejbca</h2></li>
+<li><p>完成后输入exit回车即可退出。</p>
+<h2 id="安装ejbca"><a href="#安装ejbca" class="headerlink" title="安装ejbca"></a>安装ejbca</h2></li>
 <li><p>　从ejbca官方网站下载ejbca安装包：ejbca_ce_6_3_1_1.zip，放在/usr/file目录，解压，准备修改配置</p>
 <blockquote>
 </blockquote>
@@ -860,7 +901,9 @@ ant deploy-keystore
 /subsystem=webservices:write-attribute(name=wsdl-host, value=jbossws.undefined.host)
 /subsystem=webservices:write-attribute(name=modify-wsdl-address, value=true)
 :reload
-</code></pre><h2 id="使用ejbca-community-6-3-1-1"><a href="#使用ejbca-community-6-3-1-1" class="headerlink" title="使用ejbca community 6.3.1.1"></a>使用ejbca community 6.3.1.1</h2></li>
+</code></pre></li>
+</ul>
+<h2 id="使用ejbca-community-6-3-1-1"><a href="#使用ejbca-community-6-3-1-1" class="headerlink" title="使用ejbca community 6.3.1.1"></a>使用ejbca community 6.3.1.1</h2><ul>
 <li>假设ejbca服务器地址：172.17.210.124，编辑windows的“C:\Windows\System32\drivers\etc”下的hosts文件，加入一行<code>172.17.210.124 by.cos7</code></li>
 <li>拷贝ejbca服务器“/usr/java/ejbca-ce-6.3.1.1/p12/”下的superadmin.p12到windows，双击安装，密码“ejbca”,ejbca提供了两个界面</li>
 <li>用户界面:<code>http://by.cos7:8080/ejbca/</code></li>
