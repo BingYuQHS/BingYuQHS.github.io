@@ -232,6 +232,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/07/PKI与SSL网站/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hsQin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flamingo's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/07/PKI与SSL网站/" itemprop="url">PKI与SSL网站</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-07T13:40:46+08:00">
+                2018-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="PKI概述-public-key-infrastruncture"><a href="#PKI概述-public-key-infrastruncture" class="headerlink" title="PKI概述(public key infrastruncture)"></a>PKI概述(public key infrastruncture)</h1><h2 id="PKI的主要功能"><a href="#PKI的主要功能" class="headerlink" title="PKI的主要功能"></a>PKI的主要功能</h2><ul>
+<li>安全性(encryption)：将传输的数据加密。</li>
+<li>不可否认性(authentication)：接收者PC会验证所收到的数据是否是由发件人本人所发送来的。</li>
+<li>完整性(integrity)：检查数据在传输过程中是否被篡改。</li>
+<li>补充：PKI是根据公钥加密系统(public key cryptography)来提供上述的三个功能</li>
+<li>公钥(public key)：用户的公钥可以公开给其他用户，以用于数据的加密</li>
+<li>私钥(private key)：用户的私钥是该用户私有的，一般存储在用户本地的计算机内，只有用户本身可以使用。<h2 id="公钥加密法"><a href="#公钥加密法" class="headerlink" title="公钥加密法"></a>公钥加密法</h2></li>
+<li>公钥加密：<img src="https://i.imgur.com/G0OUaLv.png" alt=""><h2 id="公钥验证-私钥签名"><a href="#公钥验证-私钥签名" class="headerlink" title="公钥验证(私钥签名)"></a>公钥验证(私钥签名)</h2></li>
+<li>私钥签名：A用私钥签名，B用A的公钥来验证确实是A发的。<img src="https://i.imgur.com/wqiozox.png" alt=""></li>
+<li>整个通信流程：<img src="https://i.imgur.com/ryg3vab.png" alt=""></li>
+<li><p>对称加密：<img src="https://i.imgur.com/OcEs8uP.png" alt=""></p>
+<p>  优点：</p>
+<pre><code>- 比非对称加密的加密速度快
+- 密钥的位数如果比较大，一般很难破解
+</code></pre><p>  缺点：</p>
+<pre><code>- 每位使用者都需要有唯一的密钥，密钥比较多的话，增加管理难度[n(n-1)/2个密钥]
+- 提供机密性，但不提供认证和防抵赖功能
+</code></pre></li>
+<li><p>非对称加密：<img src="https://i.imgur.com/gC5ayWh.png" alt=""></p>
+<h2 id="SSL网站安全连接过程"><a href="#SSL网站安全连接过程" class="headerlink" title="SSL网站安全连接过程"></a>SSL网站安全连接过程</h2></li>
+<li>简单图解：<img src="https://i.imgur.com/2DeRQ7I.png" alt=""></li>
+<li>具体过程：<ul>
+<li>(1) 客户端浏览器利用<code>https://www.birtop.com</code>来连接网站，客户端会先发出client hello信息给WEB服务器</li>
+<li>(2) WEB服务器会响应server hello信息给客户端，此信息内包含网站的证书信息(含公钥)</li>
+<li>(3) 客户端浏览器与网站双发开始协商SSL连接安全等级，如选择128/256…位加密密钥，位数越多，越难破解，数据越安全，但网站的性能越差。</li>
+<li>(4) 浏览器根据双发同意的安全等级来建立会话密钥，利用网站的公钥将会话密钥加密，将加密后的会话密钥送给我网站。</li>
+<li>(5) 网站利用自己的私钥来将会话密钥解密。</li>
+<li>(6) 浏览器与WEB网站双方相互之间传送的所有数据，都会利用这个会话密钥进行加密和解密。</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/05/EJBCA使用教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2454,137 +2604,13 @@ package.json
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="hsQin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://i4.buimg.com/519918/cbc1ffb39108d3bc.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flamingo's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T13:07:17+08:00">
-                2018-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2632,7 +2658,7 @@ package.json
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
