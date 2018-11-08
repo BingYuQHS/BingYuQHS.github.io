@@ -79,24 +79,26 @@
 
 
 
-<meta name="description" content="PKI概述(public key infrastruncture)PKI的主要功能 安全性(encryption)：将传输的数据加密。 不可否认性(authentication)：接收者PC会验证所收到的数据是否是由发件人本人所发送来的。 完整性(integrity)：检查数据在传输过程中是否被篡改。 补充：PKI是根据公钥加密系统(public key cryptography)来提供上述的三个">
+<meta name="description" content="PKI概述(public key infrastruncture)PKI组成 PKI作为一组在分布式计算系统中利用公钥技术和X.509证书所提供的安全服务，企业或组织可利用相关产品建立安全域，并在其中发布密钥和证书。在安全域内，PKI管理加密密钥和证书的发布，并提供诸如密钥管理（包括密钥更新，密钥恢复和密钥委托等）、证书管理（包括证书产生和撤销等）和策略管理等。PKI产品也允许一个组织通过证书级别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PKI与SSL网站">
 <meta property="og:url" content="http://yoursite.com/2018/11/07/PKI与SSL网站/index.html">
 <meta property="og:site_name" content="Flamingo&#39;s Blog">
-<meta property="og:description" content="PKI概述(public key infrastruncture)PKI的主要功能 安全性(encryption)：将传输的数据加密。 不可否认性(authentication)：接收者PC会验证所收到的数据是否是由发件人本人所发送来的。 完整性(integrity)：检查数据在传输过程中是否被篡改。 补充：PKI是根据公钥加密系统(public key cryptography)来提供上述的三个">
+<meta property="og:description" content="PKI概述(public key infrastruncture)PKI组成 PKI作为一组在分布式计算系统中利用公钥技术和X.509证书所提供的安全服务，企业或组织可利用相关产品建立安全域，并在其中发布密钥和证书。在安全域内，PKI管理加密密钥和证书的发布，并提供诸如密钥管理（包括密钥更新，密钥恢复和密钥委托等）、证书管理（包括证书产生和撤销等）和策略管理等。PKI产品也允许一个组织通过证书级别">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/bdIxZcI.png">
 <meta property="og:image" content="https://i.imgur.com/G0OUaLv.png">
 <meta property="og:image" content="https://i.imgur.com/wqiozox.png">
 <meta property="og:image" content="https://i.imgur.com/ryg3vab.png">
 <meta property="og:image" content="https://i.imgur.com/OcEs8uP.png">
 <meta property="og:image" content="https://i.imgur.com/gC5ayWh.png">
 <meta property="og:image" content="https://i.imgur.com/2DeRQ7I.png">
-<meta property="og:updated_time" content="2018-11-07T07:04:45.841Z">
+<meta property="og:image" content="https://i.imgur.com/rh7KZog.png">
+<meta property="og:updated_time" content="2018-11-08T05:37:49.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PKI与SSL网站">
-<meta name="twitter:description" content="PKI概述(public key infrastruncture)PKI的主要功能 安全性(encryption)：将传输的数据加密。 不可否认性(authentication)：接收者PC会验证所收到的数据是否是由发件人本人所发送来的。 完整性(integrity)：检查数据在传输过程中是否被篡改。 补充：PKI是根据公钥加密系统(public key cryptography)来提供上述的三个">
-<meta name="twitter:image" content="https://i.imgur.com/G0OUaLv.png">
+<meta name="twitter:description" content="PKI概述(public key infrastruncture)PKI组成 PKI作为一组在分布式计算系统中利用公钥技术和X.509证书所提供的安全服务，企业或组织可利用相关产品建立安全域，并在其中发布密钥和证书。在安全域内，PKI管理加密密钥和证书的发布，并提供诸如密钥管理（包括密钥更新，密钥恢复和密钥委托等）、证书管理（包括证书产生和撤销等）和策略管理等。PKI产品也允许一个组织通过证书级别">
+<meta name="twitter:image" content="https://i.imgur.com/bdIxZcI.png">
 
 
 
@@ -306,7 +308,16 @@
       
 
       
-        <h1 id="PKI概述-public-key-infrastruncture"><a href="#PKI概述-public-key-infrastruncture" class="headerlink" title="PKI概述(public key infrastruncture)"></a>PKI概述(public key infrastruncture)</h1><h2 id="PKI的主要功能"><a href="#PKI的主要功能" class="headerlink" title="PKI的主要功能"></a>PKI的主要功能</h2><ul>
+        <h1 id="PKI概述-public-key-infrastruncture"><a href="#PKI概述-public-key-infrastruncture" class="headerlink" title="PKI概述(public key infrastruncture)"></a>PKI概述(public key infrastruncture)</h1><h2 id="PKI组成"><a href="#PKI组成" class="headerlink" title="PKI组成"></a>PKI组成</h2><ul>
+<li>PKI作为一组在分布式计算系统中利用公钥技术和X.509证书所提供的安全服务，企业或组织可利用相关产品建立安全域，并在其中发布密钥和证书。在安全域内，PKI管理加密密钥和证书的发布，并提供诸如密钥管理（包括密钥更新，密钥恢复和密钥委托等）、证书管理（包括证书产生和撤销等）和策略管理等。PKI产品也允许一个组织通过证书级别或直接交叉认证等方式来同其他安全域建立信任关系。这些服务和信任关系不能局限于独立的网络之内，而应建立在网络之间和Internet之上，为电子商务和网络通信提供安全保障，所以具有互操作性的结构化和标准化技术成为PKI的核心</li>
+<li>PKI在实际应用上是一套软硬件系统和安全策略的集合，它提供了一整套安全机制，使用户在不知道对方身份或分布地很广的情况下，以证书为基础，通过一系列的信任关系进行通讯和电子商务交易</li>
+<li>一个典型的PKI系统如图1所示，其中包括PKI策略、软硬件系统、证书机构CA、注册机构RA、证书发布系统和PKI应用等。<img src="https://i.imgur.com/bdIxZcI.png" alt=""><h3 id="PKI策略"><a href="#PKI策略" class="headerlink" title="PKI策略"></a>PKI策略</h3></li>
+<li>PKI安全策略建立和定义了一个组织信息安全方面的指导方针，同时也定义了密码系统使用的处理方法和原则。它包括一个组织怎样处理密钥和有价值的信息，根据风险的级别定义安全控制的级别。一般情况下，在PKI中有两种类型的策略：一是证书策略，用于管理证书的使用，比如，可以确认某一CA是在Internet上的公有CA，还是某一企业内部的私有CA；另外一个就是CPS（Certificate Practice Statement）。一些由商业证书发放机构（CCA）或者可信的第三方操作的PKI系统需要CPS。这是一个包含如何在实践中增强和支持安全策略的一些操作过程的详细文档。它包括CA是如何建立和运作的，证书是如何发行、接收和废除的，密钥是如何产生、注册的，以及密钥是如何存储的，用户是如何得到它的等等。<h3 id="证书机构CA"><a href="#证书机构CA" class="headerlink" title="证书机构CA"></a>证书机构CA</h3></li>
+<li>证书机构CA是PKI的信任基础，它管理公钥的整个生命周期，其作用包括：发放证书、规定证书的有效期和通过发布证书废除列表（CRL）确保必要时可以废除证书。<h3 id="注册机构RA"><a href="#注册机构RA" class="headerlink" title="注册机构RA"></a>注册机构RA</h3></li>
+<li>注册机构RA提供用户和CA之间的一个接口，它获取并认证用户的身份，向CA提出证书请求。它主要完成收集用户信息和确认用户身份的功能。这里指的用户，是指将要向认证中心（即CA）申请数字证书的客户，可以是个人，也可以是集团或团体、某政府机构等。注册管理一般由一个独立的注册机构（即RA）来承担。它接受用户的注册申请，审查用户的申请资格，并决定是否同意CA给其签发数字证书。注册机构并不给用户签发证书，而只是对用户进行资格审查。因此，RA可以设置在直接面对客户的业务部门，如银行的营业部、机构认识部门等。当然，对于一个规模较小的PKI应用系统来说，可把注册管理的职能由认证中心CA来完成，而不设立独立运行的RA。但这并不是取消了PKI的注册功能，而只是将其作为CA的一项功能而已。PKI国际标准推荐由一个独立的RA来完成注册管理的任务，可以增强应用系统的安全。 其功能包括个人身份审核、CRL管理、密钥产生和密钥对备份等。<h3 id="证书发布系统"><a href="#证书发布系统" class="headerlink" title="证书发布系统"></a>证书发布系统</h3></li>
+<li>证书发布系统负责证书的发放，如可以通过用户自己，或是通过目录服务。目录服务器可以是一个组织中现存的，也可以是PKI方案中提供的。<h3 id="PKI的应用"><a href="#PKI的应用" class="headerlink" title="PKI的应用"></a>PKI的应用</h3></li>
+<li>PKI的应用非常广泛，包括在web服务器和浏览器之间的通讯、电子邮件、电子数据交换（EDI）、在Internet上的信用卡交易和虚拟私有网（VPN）等。<h3 id="软硬件系统"><a href="#软硬件系统" class="headerlink" title="软硬件系统"></a>软硬件系统</h3></li>
+<li>PKI存储库包括LDAP目录服务器和普通数据库，用于对用户申请、证书、密钥、CRL和日志等信息进行存储和管理，并提供一定的查询功能。<h2 id="PKI的主要功能"><a href="#PKI的主要功能" class="headerlink" title="PKI的主要功能"></a>PKI的主要功能</h2></li>
 <li>安全性(encryption)：将传输的数据加密。</li>
 <li>不可否认性(authentication)：接收者PC会验证所收到的数据是否是由发件人本人所发送来的。</li>
 <li>完整性(integrity)：检查数据在传输过程中是否被篡改。</li>
@@ -333,9 +344,37 @@
 <li>(3) 客户端浏览器与网站双发开始协商SSL连接安全等级，如选择128/256…位加密密钥，位数越多，越难破解，数据越安全，但网站的性能越差。</li>
 <li>(4) 浏览器根据双发同意的安全等级来建立会话密钥，利用网站的公钥将会话密钥加密，将加密后的会话密钥送给我网站。</li>
 <li>(5) 网站利用自己的私钥来将会话密钥解密。</li>
-<li>(6) 浏览器与WEB网站双方相互之间传送的所有数据，都会利用这个会话密钥进行加密和解密。</li>
+<li>(6) 浏览器与WEB网站双方相互之间传送的所有数据，都会利用这个会话密钥进行加密和解密。<h2 id="服务器的名称指示-SNI"><a href="#服务器的名称指示-SNI" class="headerlink" title="服务器的名称指示(SNI)"></a>服务器的名称指示(SNI)</h2></li>
 </ul>
 </li>
+<li>SNI （server name indication）</li>
+<li>(https)SSL服务对应的端口443，SNI能使客户端和服务器端进行访问的时候，在client hello消息和server hello消息里边标记域名等信息，更好的识别。方便服务器端选择正确的证书返回给客户端，以便客户端访问指定的网站。<h2 id="证书颁发机构（CA）概述与根CA的安装"><a href="#证书颁发机构（CA）概述与根CA的安装" class="headerlink" title="证书颁发机构（CA）概述与根CA的安装"></a>证书颁发机构（CA）概述与根CA的安装</h2></li>
+<li>CA:certification authority,可以搭建一台服务器，来作为证书颁发机构。<img src="https://i.imgur.com/rh7KZog.png" alt=""><h3 id="CA的信任"><a href="#CA的信任" class="headerlink" title="CA的信任"></a>CA的信任</h3></li>
+<li>1）两类重要的证书：<pre><code>- 第一类：用于建立信任关系得证书
+- 第二类：用户数据加密、签名，保证数据安全的证书
+</code></pre></li>
+<li>2）对于用户或网站他们的公钥与私钥是如何产生的？<pre><code>- a. 在申请证书时，需要输入姓名、地址与电子邮件等数据，这些数据会被发送到一个称为CSP的程序，CSP是微软公司用户在windows平台上提供第三方加密模块的接口标准。此程序已被安装在申请者的计算机内
+- b. CSP会自动建立一对密钥：一个公钥与一个私钥。CSP会将私钥存储到申请者的计算机的注册表中，然后将证书申请的数据与公钥一并发送给CA,CA检查这些数据无误后，会利用CA自己的私钥将要发放的证书进行签名，然后发放此证书。申请者收到证书后，将证书安装到他的计算机内。
+- c. 证书内容包含了证书的颁发对象、证书的有效期、颁发此证书的CA与CA的数字签名。还有申请者的姓名、地址、电子邮件、公钥等信息。
+- 注释：CSP:cryptographic service provider 
+</code></pre><h3 id="AD证书服务的CA种类"><a href="#AD证书服务的CA种类" class="headerlink" title="AD证书服务的CA种类"></a>AD证书服务的CA种类</h3></li>
+<li>AD、CS的CA种类<pre><code>AD（active directory）、CS(certification service)的CA种类
+</code></pre></li>
+<li>1）企业根CA（enterprise root CA）<pre><code>- a. 需要AD环境（域环境），可以安装到域控制器或域成员服务器上
+- b. 发放证书的对象仅限域用户
+- c. 主要工作应该是用来发放证书给从属CA,发放证书的具体工作交给从属CA来负责。
+</code></pre></li>
+<li>2) 企业的从属CA（enterprise suborinate CA）<pre><code>- a. 也需要AD环境（域环境）
+- b. 适用于证书的具体管理和发放工作
+- c. 从属CA必须向其父CA取得证书后，才会正常工作
+- d. 从属CA也可以发放证书给下一层的从属CA
+</code></pre></li>
+<li>3) 独立根CA（standalone root CA）<pre><code>- a. 类似于企业根CA,但是不需要AD域，扮演独立根CA角色的计算机可以是独立服务器、成员服务器或域控制器
+- b. 无论是否为域用户，都可以向独立根CA申请证书
+</code></pre></li>
+<li>4) 独立从属CA（standalone suborinate CA）<pre><code>- a. 类似于企业从属CA,但是不需要AD域，扮演独立从属CA角色的计算机可以是独立服务器、成员服务器或域控制器
+- b. 无论是否为域用户，都可以向独立从属CA申请证书
+</code></pre><h3 id="安装AD-CS（证书服务）"><a href="#安装AD-CS（证书服务）" class="headerlink" title="安装AD CS（证书服务）"></a>安装AD CS（证书服务）</h3></li>
 </ul>
 
       
@@ -531,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PKI概述-public-key-infrastruncture"><span class="nav-number">1.</span> <span class="nav-text">PKI概述(public key infrastruncture)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PKI的主要功能"><span class="nav-number">1.1.</span> <span class="nav-text">PKI的主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥加密法"><span class="nav-number">1.2.</span> <span class="nav-text">公钥加密法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥验证-私钥签名"><span class="nav-number">1.3.</span> <span class="nav-text">公钥验证(私钥签名)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL网站安全连接过程"><span class="nav-number">1.4.</span> <span class="nav-text">SSL网站安全连接过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PKI概述-public-key-infrastruncture"><span class="nav-number">1.</span> <span class="nav-text">PKI概述(public key infrastruncture)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PKI组成"><span class="nav-number">1.1.</span> <span class="nav-text">PKI组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PKI策略"><span class="nav-number">1.1.1.</span> <span class="nav-text">PKI策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书机构CA"><span class="nav-number">1.1.2.</span> <span class="nav-text">证书机构CA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册机构RA"><span class="nav-number">1.1.3.</span> <span class="nav-text">注册机构RA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证书发布系统"><span class="nav-number">1.1.4.</span> <span class="nav-text">证书发布系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PKI的应用"><span class="nav-number">1.1.5.</span> <span class="nav-text">PKI的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软硬件系统"><span class="nav-number">1.1.6.</span> <span class="nav-text">软硬件系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PKI的主要功能"><span class="nav-number">1.2.</span> <span class="nav-text">PKI的主要功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥加密法"><span class="nav-number">1.3.</span> <span class="nav-text">公钥加密法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公钥验证-私钥签名"><span class="nav-number">1.4.</span> <span class="nav-text">公钥验证(私钥签名)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSL网站安全连接过程"><span class="nav-number">1.5.</span> <span class="nav-text">SSL网站安全连接过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器的名称指示-SNI"><span class="nav-number">1.6.</span> <span class="nav-text">服务器的名称指示(SNI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书颁发机构（CA）概述与根CA的安装"><span class="nav-number">1.7.</span> <span class="nav-text">证书颁发机构（CA）概述与根CA的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CA的信任"><span class="nav-number">1.7.1.</span> <span class="nav-text">CA的信任</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AD证书服务的CA种类"><span class="nav-number">1.7.2.</span> <span class="nav-text">AD证书服务的CA种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装AD-CS（证书服务）"><span class="nav-number">1.7.3.</span> <span class="nav-text">安装AD CS（证书服务）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
